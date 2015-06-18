@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by kinggrass on 22.04.15.
  */
-@FeignClient("appointmentgateway")
+@FeignClient(url="http://api.catcal.zone")
 public interface AppointmentGatewayService {
 
 

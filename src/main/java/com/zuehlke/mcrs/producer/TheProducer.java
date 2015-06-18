@@ -23,7 +23,6 @@ import static reactor.bus.selector.Selectors.$;
 @Configuration
 @EnableAutoConfiguration
 @EnableAsync
-@EnableDiscoveryClient
 @EnableFeignClients
 @ComponentScan
 public class TheProducer implements CommandLineRunner {
