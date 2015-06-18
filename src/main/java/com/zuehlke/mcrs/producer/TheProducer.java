@@ -27,7 +27,7 @@ import static reactor.bus.selector.Selectors.$;
 @ComponentScan
 public class TheProducer implements CommandLineRunner {
 
-    public static final int RUNS = 20000;
+    public static final int RUNS = 100;
 
     @Bean
     Environment env() {

@@ -3,10 +3,12 @@ package com.zuehlke.mcrs.producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
 import reactor.bus.Event;
 import reactor.bus.EventBus;
 
 import javax.inject.Named;
+
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -34,6 +36,13 @@ public class MessageProducer {
         int index = 0;
         while(index++ < TheProducer.RUNS) {
             eventBus.notify(appointmentQueue, Event.wrap(messageCreator.newMessage()));
+            
+            try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
 
         try {
