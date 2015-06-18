@@ -21,7 +21,7 @@ group = 'catcalzone'
 
 task buildDocker(type: Docker, dependsOn: build) {
   push = false
-  applicationName = "appointment-gateway"
+  applicationName = "the-producer"
   dockerfile = file('src/main/docker/Dockerfile')
   doFirst {
     copy {
