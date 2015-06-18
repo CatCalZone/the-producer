@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: theProducer
+  cloud:
+    config:
+      enabled: false
+
