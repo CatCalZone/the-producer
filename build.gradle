@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'docker'
 
 
 sourceCompatibility = 1.8
@@ -13,10 +14,22 @@ ext {
     springVersion = '4.1.6.RELEASE'
     springBootVersion = '1.2.3.RELEASE'
     springCloudVersion = '1.0.1.RELEASE'
-
-    
 }
 
+
+group = 'catcalzone'
+
+task buildDocker(type: Docker, dependsOn: build) {
+  push = false
+  applicationName = "appointment-gateway"
+  dockerfile = file('src/main/docker/Dockerfile')
+  doFirst {
+    copy {
+      from jar
+      into stageDir
+    }
+  }
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
@@ -40,6 +53,7 @@ buildscript {
     }
     dependencies {
        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.10.RELEASE")
+       classpath 'se.transmode.gradle:gradle-docker:1.2'
     }
 }
 
