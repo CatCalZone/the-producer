@@ -11,10 +11,13 @@ import javax.inject.Named;
 
 import java.util.concurrent.CountDownLatch;
 
+import lombok.extern.java.Log;
+
 /**
  * Created by dea@zuehlke.com on 08.04.15.
  */
 @Service
+@Log
 public class MessageProducer {
 
     @Autowired
@@ -35,7 +38,9 @@ public class MessageProducer {
     public void createMessages()  {
         int index = 0;
         while(index++ < TheProducer.RUNS) {
-            eventBus.notify(appointmentQueue, Event.wrap(messageCreator.newMessage()));
+        	final AppointmentRequest request = messageCreator.newMessage();
+            eventBus.notify(appointmentQueue, Event.wrap(request));
+            log.info(String.format("Notified message from %s", request.getRequestUser()));
             
             try {
 				Thread.sleep(5000);
