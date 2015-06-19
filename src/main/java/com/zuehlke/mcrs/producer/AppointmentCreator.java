@@ -17,11 +17,11 @@ public class AppointmentCreator {
 
     public AppointmentRequest newMessage() {
         AppointmentRequest appointmentRequest = new AppointmentRequest();
-        appointmentRequest.setRequestUser("User" + UUID.randomUUID());
+        appointmentRequest.setRequestUser("the-producer" + UUID.randomUUID());
         appointmentRequest.setTitle("Title " + UUID.randomUUID());
         appointmentRequest.setMaxEndDate(LocalDate.now());
         appointmentRequest.setMinStartDate(LocalDate.now());
-        appointmentRequest.setAttendees(Arrays.asList("User2","User3"));
+        appointmentRequest.setAttendees(Arrays.asList("the-producer-2","the-producer-3"));
         appointmentRequest.setDurationInHours(2);
         return appointmentRequest;
     }
