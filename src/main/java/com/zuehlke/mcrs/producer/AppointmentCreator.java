@@ -21,7 +21,7 @@ public class AppointmentCreator {
         appointmentRequest.setTitle("Title " + UUID.randomUUID());
         appointmentRequest.setMaxEndDate(LocalDate.now());
         appointmentRequest.setMinStartDate(LocalDate.now());
-        appointmentRequest.setAttendees(Arrays.asList("the-producer-2","the-producer-3"));
+        appointmentRequest.setAttendees(Arrays.asList("the-other-guy"));
         appointmentRequest.setDurationInHours(2);
         return appointmentRequest;
     }
