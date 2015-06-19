@@ -17,7 +17,7 @@ public class AppointmentCreator {
 
     public AppointmentRequest newMessage() {
         AppointmentRequest appointmentRequest = new AppointmentRequest();
-        appointmentRequest.setRequestUser("the-producer" + UUID.randomUUID());
+        appointmentRequest.setRequestUser(String.format("the-producer-%s", UUID.randomUUID()));
         appointmentRequest.setTitle("Title " + UUID.randomUUID());
         appointmentRequest.setMaxEndDate(LocalDate.now());
         appointmentRequest.setMinStartDate(LocalDate.now());
